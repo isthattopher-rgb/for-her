@@ -1,0 +1,614 @@
+.top-navp {
+     display: flex;             /* Ini yang bikin jadi kanan-kiri */
+    justify-content: center;    /* Supaya kedua kotak berada di tengah layar */
+    gap: 70px;                 /* Jarak antar dua kotak profil */
+    margin: 50px auto;
+    width: 100%;
+    max-width: 425px;          /* Batas lebar supaya tidak terlalu jauh pisahnya */
+}
+
+.top-navp {
+     flex: 1;                   /* Membagi ruang sama rata antara kiri dan kanan */
+    background: #ffe3c8a9; 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling Top Bar */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Tinggi bar */
+    z-index: 10000;
+    background: rgb(30, 30, 30); 
+    
+    /* Garis bawah tipis biar tegas tapi tetep minimalis */
+    border-bottom: 4px solid rgb(118, 118, 118);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-nav span {
+    color: white; /* Ganti jadi black kalau background web kamu sangat terang */
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* Penyesuaian Body agar tidak tertutup */
+body {
+    padding-top: 60px; /* Memberi ruang supaya container tidak mepet ke top bar */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20vw;
+
+}
+
+body {
+    background-image: url(bg-web.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    color: rgb(24, 24, 24);
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 30PX;
+    text-align: center;
+
+}
+
+P {
+    font-size: 1rem;
+    font-weight: 50;
+}
+
+.intro strong {font-weight: 600;}
+
+.intro {margin-bottom: 20px;}
+
+.feature {
+    margin: 3px 0 5px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px solid black
+}
+
+.project {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0vh;
+}
+
+.logo-kecil{
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    margin: 0 5px;
+}
+/* Styling untuk kartu */
+.hiasan-kartu {
+    background: linear-gradient(rgba(255, 242, 237, 0.7), rgba(255, 242, 237, 0.7)), 
+                url('teksture-card.jpg');
+    border: 2px solid #131313;  /* Garis pinggir tegas */
+    border-radius: 15px;       /* Membuat sudut melengkung */
+    padding: 30px;             /* Jarak teks ke pinggir kotak */
+    max-width: 500px;          /* Lebar maksimal kartu */
+    margin: -10px auto;         /* Biar kotak berada di tengah */
+    text-align: center;        /* Teks di dalam kotak jadi tengah */
+    box-shadow: 5px 5px 0px #1a1a1a85; /* Efek bayangan kaku khas retro */
+    position: relative; /* Wajib agar header menempel di sini */
+}
+
+.hiasan-kartu::after {
+    content: "❤️ ❤️ ❤️";
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* Styling tambahan untuk teks di dalam */
+.hiasan-kartu p {
+    font-family: 'Georgia', serif;
+    color: #3d0a0a;
+    line-height: 1.6;
+}
+
+/* Tombol bulat di dalam kartu */
+.i-do {
+      background: linear-gradient(rgb(255, 117, 117), rgb(97, 12, 12)), 
+                url('teksture-btn.jpg');
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.floating-heart {
+    position: fixed;
+    font-size: 80px; /* Ukuran hati besar */
+    pointer-events: none; /* Supaya tidak mengganggu klik */
+    z-index: 9999;
+    user-select: none;
+    animation: flyUpAndFade 1.5s ease-out forwards;
+}
+
+@keyframes flyUpAndFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -20px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        /* Gerakan ke atas sejauh 150px */
+        transform: translate(-50%, -150px) scale(1.5);
+    }
+}
+
+.container {
+    /* Atur lebar maksimal di sini, misal 400px atau 450px supaya ramping */
+    max-width: 400px; 
+    
+    /* Supaya di layar kecil (HP) tidak mepet ke pinggir banget */
+    width: 90%; 
+
+    /* Pusatkan box ke tengah */
+    margin: 50px auto;
+
+    /* Efek Glassmorphism (Transparan Blur) */
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Styling tambahan */
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Supaya konten di dalamnya rata tengah */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+
+    /* Opsional: Tambahkan sedikit cahaya di sisi atas (efek bevel) */
+    border-top: 2px solid rgba(255, 255, 255, 0.6);
+    border-left: 2px solid rgba(255, 255, 255, 0.6);
+
+    /* Efek bayangan tipis agar garis tepinya lebih tegas */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 1. Definisi animasi geser horizontal */
+@keyframes geserHorizontal {
+    0% {
+        transform: translateX(0) rotate(-15deg); /* Posisi awal */
+    }
+    50% {
+        transform: translateX(50px) rotate(-10deg); /* Geser ke kanan 50px */
+    }
+    100% {
+        transform: translateX(0) rotate(-15deg); /* Balik lagi */
+    }
+}
+
+.bottom-photo-container {
+    display: flex;
+    justify-content: center; /* Biar ke tengah */
+    gap: 20px;              /* Jarak antar 2 foto */
+    margin-top: 50px;       /* Jarak dari elemen di atasnya */
+    margin-bottom: 0px;    /* Jarak ke dasar halaman */
+    padding: 0 0px;
+}
+
+.photo-square {
+    /* Membuat bentuk kotak sempurna */
+    width: 150px;           /* Ukuran lebar */
+    height: 150px;          /* Ukuran tinggi (samakan biar kotak) */
+    
+}
+
+.photo-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* KUNCI: Biar foto kotak tapi nggak penyet */
+    border-radius: 10px;    /* Biar foto di dalemnya juga melengkung */
+}
+
+/* Biar manis, tambahin efek sedikit pas kursor di atasnya */
+.photo-square:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+/* 2. Terapkan ke foto dekorasi */
+.dekorasi {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+    z-index: -8;
+    opacity: 0.6;
+    pointer-events: none;
+
+    /* Pasang animasinya di sini */
+    /* 6s = durasi, ease-in-out = gerakan halus, infinite = jalan terus */
+    animation: geserHorizontal 6s ease-in-out infinite;
+}
+
+/* 3. Atur variasi posisi dan durasi biar nggak barengan geraknya */
+.p1 {
+    top: 15%;
+    left: 5%;
+}
+
+/* Mencegah scrollbar muncul saat foto geser ke pinggir layar */
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.story-part{
+      margin-top: 0vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -5vh;
+}
+
+.profile-container {
+    display: flex;             /* Ini yang bikin jadi kanan-kiri */
+    justify-content: center;    /* Supaya kedua kotak berada di tengah layar */
+    gap: 20px;                 /* Jarak antar dua kotak profil */
+    margin: 40px auto;
+    width: 100%;
+    max-width: 800px;          /* Batas lebar supaya tidak terlalu jauh pisahnya */
+}
+
+.profile-card {
+    flex: 1;                   /* Membagi ruang sama rata antara kiri dan kanan */
+    background: #ffe3c8a9; 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Ukuran foto profil agar tetap pas */
+.profile-img-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgb(255, 172, 121);
+}
+
+.profile-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.profile-info p {
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
+.gallery-section {
+    margin-top: 50px;
+    margin-bottom: 100px; /* Jarak bawah agar tidak mepet layar */
+    text-align: center;
+}
+
+.gallery-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Membuat 2 kolom otomatis */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; /* Jarak antar foto */
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 150px; /* Kamu bisa atur tingginya */
+    object-fit: cover; /* Agar foto tidak gepeng */
+    border-radius: 10px;
+}
+
+/* Efek saat foto disentuh (hover) */
+.photo-card:hover {
+    transform: scale(1.05); /* Foto membesar dikit */
+}
+
+/* Styling Pembatas (Divider) */
+.story-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px auto;
+    width: 80%;
+    position: relative;
+}
+
+.moving-decor {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes uniqueFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(15px, -20px) rotate(15deg);
+    }
+    66% {
+        transform: translate(-10px, -10px) rotate(-10deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.d1 {
+    top: 5%;
+    left: 2%;
+    animation: uniqueFloat 12s ease-in-out infinite;
+}
+
+.d2 {
+    top: 45%;
+    right: 3%;
+    animation: uniqueFloat 10s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.d3 {
+    bottom: 5%;
+    left: 10%;
+    animation: uniqueFloat 7s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Garisnya pakai gradasi transparan ke putih */
+.story-divider::before, .story-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to var(--direction, right), rgba(255,255,255,0), rgb(255, 255, 255));
+    box-shadow: 0 0 10px rgb(64, 19, 19);
+}
+
+.story-divider::after {
+    --direction: left;
+}
+
+.divider-icon {
+    margin: 0 15px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-shadow: 0 0 10px rgb(64, 19, 19); /* Efek Cahaya */
+}
+
+/* Styling Story Section */
+.story-section {
+    padding: -1px;
+    margin-bottom: 100px;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.story-header h2 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+}
+
+.story-subtitle {
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Kotak Cerita Kaca */
+.story-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid rgba(255, 255, 255, 0.5); /* Garis aksen di samping */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.story-date {
+    display: block;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #610c0c; /* Warna aksen maroon biar senada tombol */
+}
+
+.photo-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.photo-btn {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+}
+
+.photo-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar foto nggak penyet */
+    transition: transform 0.5s ease;
+}
+
+.btn-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Efek gelap di atas foto */
+    display: flex;
+}
+
+/* Efek pas tombol didekati kursor */
+.photo-btn:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: white;
+}
+
+.photo-btn:hover img {
+    transform: scale(1.2); /* Foto nge-zoom dikit pas di hover */
+}
+
+.photo-btn:hover .btn-overlay {
+    background: rgba(0, 0, 0, 0.2); /* Gelapnya berkurang pas di hover */
+}
+
+/* Responsif buat HP */
+@media (max-width: 480px) {
+    .photo-button-container {
+        flex-direction: row; /* Tetap kanan kiri di HP */
+        flex-wrap: wrap;
+    }
+    .photo-btn {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+.footer-section {
+    position: relative;
+    padding: 60px 0 40px;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    overflow: hidden; /* Biar hiasan gak bikin scroll samping */
+}
+
+.footer-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.copyright {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Styling Hiasan Footer */
+.footer-decor {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    opacity: 1;
+    z-index: -1;
+    filter: grayscale(30%); /* Biar warnanya lebih kalem */
+    animation: floatFooter 4s ease-in-out infinite;
+}
+
+@keyframes floatFooter {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+/* Posisi Hiasan */
+.fd1 {
+    bottom: 20px;
+    left: 10%;
+}
+
+.fd3 {
+    bottom: 40px;
+    right: 5%;
+    width: 60px;
+    animation-delay: 2s;
+}
+

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="icon" type="image/png" href="pixel-heart.gif">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories - Jingga</title>
+    <link rel="stylesheet" href="style-projek.css">
+</head>
+<body>
+
+    <body>
+    <div id="decoration-container"></div> <div class="main-content">
+       </div>
+</body>
+<h1 class="judul-utama">✦ A&J Gallery PAGE ✦</h1>
+
+    <div class="nav-container">
+        <a href="index.html" class="btn-back">← Back</a>
+    </div>
+
+    <div class="main-content">
+        <div class="glass-box">
+            <h2>Gallery Page about US</h2>
+            <p>-✦ mini gallery ✦-</p>
+            
+            <div class="photo-grid">
+                <img src="fotoo1.jpeg" alt="1">
+                <img src="fotoo2.jpeg" alt="2">
+                <img src="fotoo3.jpeg" alt="3">
+                <img src="fotoo4.jpeg" alt="4">
+                <img src="fotoo5.jpeg" alt="5">
+                <img src="fotoo6.jpeg" alt="6">
+            </div>
+        </div>
+
+        </div> <div class="outside-content">
+    <div class="photo-long">
+        <img src="foto-panjang.jpeg" alt="Foto Kenangan Panjang">
+    </div>
+    
+    <div class="description-text">
+        <h3>A Special Moment</h3>
+        <p>our first photobooth, its not really first</p>
+        <p>but its just me and her</p>
+        <p>and i think i like you</p>
+        <p>best when you're just with me</p>
+        <p>and no one else,</p>
+        <p>to me she really beautiful</p>
+        <p>her eyes,</p>
+        <p>here smile,</p>
+        <p>has the most beautiful line on her cheeks</p>
+        <p>i loves her so much.</p>
+    </div>
+</div>
+    </div>
+
+  <div class="question-card">
+    <h2 id="question-text">Wont you please ?Be my bb?</h2>
+    <div class="btn-group">
+        <button id="btn-yes" class="btn-ans" onclick="answerYes()">Yes</button>
+        <button id="btn-no" class="btn-ans" onmouseover="moveNo()" onclick="moveNo()">No</button>
+    </div>
+</div>
+
+<audio id="yay-sound" src="yay.mp3"></audio>
+
+<script>
+    const noPhrases = [
+        "You sure?", 
+        "You really2 sure?", 
+        "Think twice", 
+        "Jahat banget :(", 
+        "Klik YES aja udah ❤️", 
+        "Try Again."
+    ];
+    let noCount = 0;
+
+    function moveNo() {
+        const btnNo = document.getElementById('btn-no');
+        const qText = document.getElementById('question-text');
+        
+        // Jarak geser (jangan jauh-jauh, cuma 60px)
+        const offset = 60; 
+
+        // Cek jika sudah di akhir kalimat
+        if (noCount >= noPhrases.length) {
+            btnNo.style.transform = `translate(0px, 0px)`; // Balik ke tengah
+            qText.innerText = "Please?";
+            noCount = 0; // Reset
+            return;
+        }
+
+        // Pilih arah secara acak (0:atas, 1:bawah, 2:kanan, 3:kiri)
+        const direction = Math.floor(Math.random() * 4);
+        let moveX = 0;
+        let moveY = 0;
+
+        if (direction === 0) moveY = -offset;      // Atas
+        else if (direction === 1) moveY = offset;  // Bawah
+        else if (direction === 2) moveX = offset;  // Kanan
+        else if (direction === 3) moveX = -offset; // Kiri
+
+        // Geser tombol dari posisi awal
+        btnNo.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+        // Ganti teks pertanyaan
+        qText.innerText = noPhrases[noCount];
+        noCount++;
+    }
+
+    function answerYes() {
+        const qText = document.getElementById('question-text');
+        const btnGroup = document.querySelector('.btn-group');
+        
+        qText.innerText = "Yayyy!!! ❤️";
+        btnGroup.style.display = 'none';
+
+        // LEDAKAN MASIF (100 Love muncul random di layar)
+        for (let i = 0; i < 100; i++) {
+            setTimeout(() => {
+                createPopLove();
+            }, i * 20); // Muncul cepat beruntun
+        }
+    }
+
+    function createPopLove() {
+        const love = document.createElement('img');
+        love.src = 'lovepopt.png'; // Pastikan file love.png ada di folder yang sama
+        love.className = 'love-pop';
+
+        // Muncul di mana saja secara random (Layar Penuh)
+        const x = Math.random() * (window.innerWidth - 80);
+        const y = Math.random() * (window.innerHeight - 80);
+        
+        love.style.left = x + 'px';
+        love.style.top = y + 'px';
+        
+        // Ukuran random (50px - 130px)
+        const size = Math.random() * 80 + 50 + 'px';
+        love.style.width = size;
+
+        document.body.appendChild(love);
+
+        // Hapus otomatis setelah 2 detik
+        setTimeout(() => {
+            love.remove();
+        }, 2000);
+    }
+    
+</script>
+
+<div class="photobooth-wrapper">
+        <div class="result-section">
+            <div id="capture-area" class="frame-style">
+                <div id="result-grid" class="grid-6">
+                    <div class="empty-box"></div>
+                    <div class="empty-box"></div>
+                    <div class="empty-box"></div>
+                    <div class="empty-box"></div>
+                    <div class="empty-box"></div>
+                    <div class="empty-box"></div>
+                </div>
+                <div class="frame-footer">-✦-</div>
+            </div>
+
+            <div class="button-group">
+                <button id="btn-download" class="btn save" onclick="downloadGrid()" style="display:none;">Save Grid</button>
+                <button id="btn-reset" class="btn reset" onclick="resetPhotos()">Reset</button>
+            </div>
+        </div>
+
+        <div class="camera-section">
+            <div class="camera-box">
+                <video id="video" autoplay muted playsinline></video>
+                <button id="shutter" title="Jepret!"></button>
+            </div>
+            <h1 class="hint">✦ Let's Create Memories ✦</h1>
+        </div>
+    </div>
+
+    <canvas id="canvas" style="display:none;"></canvas>
+    <canvas id="gridCanvas" style="display:none;"></canvas>
+
+    <script>
+        // KODE JS SAYA TARUH DI SINI BIAR PASTI KE-PANGGIL
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const gridCanvas = document.getElementById('gridCanvas');
+            const shutter = document.getElementById('shutter');
+            const grid = document.getElementById('result-grid');
+            const btnDownload = document.getElementById('btn-download');
+
+            let photos = [];
+
+            // 1. Fungsi Nyalakan Kamera
+            async function startCamera() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ 
+                        video: { width: 640, height: 480 } 
+                    });
+                    video.srcObject = stream;
+                    console.log("Kamera Aktif!");
+                } catch (err) {
+                    console.error("Kamera Error:", err);
+                    alert("Akses kamera ditolak! Izinkan kamera di pojok kiri atas browser.");
+                }
+            }
+
+            // 2. Fungsi Jepret
+            function takePhoto() {
+                if (photos.length >= 6) return;
+
+                const ctx = canvas.getContext('2d');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+
+                ctx.save();
+                ctx.translate(canvas.width, 0);
+                ctx.scale(-1, 1);
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                ctx.restore();
+
+                const dataUrl = canvas.toDataURL('image/png');
+                photos.push(dataUrl);
+
+                const boxes = grid.children;
+                const newImg = document.createElement('img');
+                newImg.src = dataUrl;
+                // Sesuaikan style dikit biar pas di grid
+                newImg.style.width = "100%";
+                newImg.style.height = "100%";
+                newImg.style.objectFit = "cover";
+                
+                grid.replaceChild(newImg, boxes[photos.length - 1]);
+
+                if (photos.length === 6) {
+                    btnDownload.style.display = 'block';
+                }
+            }
+
+            // 3. Fungsi Save (Global agar bisa dipanggil onclick)
+            window.downloadGrid = async function() {
+    const ctx = gridCanvas.getContext('2d');
+    const p = 50;  // Padding antar foto
+    const w = 600; // Lebar foto (skala laptop)
+    const h = 450; // Tinggi foto (skala laptop)
+
+    // Hitung ukuran kertas canvas
+    gridCanvas.width = (w * 2) + (p * 3);
+    gridCanvas.height = (h * 3) + (p * 4) + 140; 
+
+    // Background Putih Bersih
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, gridCanvas.width, gridCanvas.height);
+
+    for (let i = 0; i < photos.length; i++) {
+        const img = new Image();
+        img.src = photos[i];
+        await new Promise(res => img.onload = res);
+        
+        const col = i % 2;
+        const row = Math.floor(i / 2);
+        const x = p + (col * (w + p));
+        const y = p + (row * (h + p));
+        
+        // Gambar foto ke grid
+        ctx.drawImage(img, x, y, w, h);
+    }
+
+    // Teks Footer Estetik
+    ctx.fillStyle = "#333";
+    ctx.font = "bold 60px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("Our Precious Memory ✨", gridCanvas.width / 2, gridCanvas.height - 80);
+
+    // Proses Download
+    const link = document.createElement('a');
+    link.download = 'photobooth-laptop-wide.png';
+    link.href = gridCanvas.toDataURL("image/png");
+    link.click();
+    };
+
+            // 4. Fungsi Reset
+            window.resetPhotos = function() {
+                photos = [];
+                grid.innerHTML = '<div class="empty-box"></div>'.repeat(6);
+                btnDownload.style.display = 'none';
+            };
+
+            shutter.addEventListener('click', takePhoto);
+            startCamera();
+        });
+    </script>
+
+    <div class="camera-footer">
+    <p>© 2026 Loving Web — Made with ❤️</p>
+    <span>v1.0.2 • Enjoy your memories</span>
+</div>
+
+<script>
+// 1. PENGATURAN UTAMA
+const listGambar = ['ikan1.gif', 'ikan2.gif', 'ikan3.gif', 'ikan4.gif','ikan5.gif','ikan6.png','ikan7.png','ikan8.png']; 
+const jumlahMahluk = 15; // <--- SUDAH JADI 11
+
+const container = document.getElementById('decoration-container');
+
+// 2. PROSES PEMBUATAN MAHLUK (OTOMATIS)
+for (let i = 0; i < jumlahMahluk; i++) {
+    const img = document.createElement('img');
+    const gambarAcak = listGambar[Math.floor(Math.random() * listGambar.length)];
+    img.src = gambarAcak;
+    img.className = 'pet';
+    
+    // Ukuran variatif (60px - 100px)
+    const size = Math.floor(Math.random() * 50) + 80;
+    img.style.width = size + 'px';
+    
+    // Posisi awal acak (Bisa muncul di mana saja dari atas sampai bawah)
+    img.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+    img.style.top = Math.random() * (document.documentElement.scrollHeight - 100) + 'px';
+    
+    container.appendChild(img);
+}
+
+// 3. KASIH NYAWA (BISA JALAN SAMPAI BAWAH & DI-DRAG)
+const pets = document.querySelectorAll('.pet');
+pets.forEach(pet => {
+    let isDragging = false;
+    let posX = parseFloat(pet.style.left);
+    let posY = parseFloat(pet.style.top);
+    
+    // Kecepatan jalan
+    let velX = (Math.random() - 0.5) * 2.5; 
+    let velY = (Math.random() - 0.5) * 2.5; 
+
+   function move() {
+    if (!isDragging) {
+        posX += velX;
+        posY += velY;
+
+        // --- PAGAR KIRI-KANAN ---
+        if (posX <= 0) {
+            velX *= -1;
+            posX = 0; // Paksa balik ke posisi 0 kalau bablas
+        } else if (posX >= window.innerWidth - pet.offsetWidth) {
+            velX *= -1;
+            posX = window.innerWidth - pet.offsetWidth;
+        }
+
+        // --- PAGAR ATAS-BAWAH (PENTING) ---
+        // Kita hitung tinggi total halaman setiap detik biar akurat
+        const totalTinggiHalaman = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        const batasBawah = totalTinggiHalaman - pet.offsetHeight;
+
+        if (posY <= 0) {
+            velY *= -1;
+            posY = 0; // PAKSA mahluknya tetep di dalam layar (nggak boleh minus)
+        } else if (posY >= batasBawah) {
+            velY *= -1;
+            posY = batasBawah; // Pantulkan pas kena ujung footer
+        }
+
+        pet.style.left = posX + 'px';
+        pet.style.top = posY + 'px';
+        
+        // Nengok kanan-kiri
+        pet.style.transform = velX > 0 ? 'scaleX(1)' : 'scaleX(-1)';
+    }
+    requestAnimationFrame(move);
+}
+    move();
+
+    // LOGIKA DRAG & DROP BEBAS
+    pet.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        pet.style.zIndex = 10001; // Biar yang lagi di-drag paling depan
+        
+        let shiftX = e.clientX - pet.getBoundingClientRect().left;
+        let shiftY = e.clientY - pet.getBoundingClientRect().top;
+
+        function onMouseMove(e) {
+            // e.pageX & e.pageY supaya tetap akurat meskipun halaman di-scroll
+            posX = e.pageX - shiftX;
+            posY = e.pageY - shiftY;
+            
+            pet.style.left = posX + 'px';
+            pet.style.top = posY + 'px';
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            pet.style.zIndex = 10000;
+            document.removeEventListener('mousemove', onMouseMove);
+            
+            // Arah baru pas dilepas
+            velX = (Math.random() - 0.5) * 4;
+            velY = (Math.random() - 0.5) * 4;
+        }, { once: true });
+    });
+    
+    pet.ondragstart = () => false;
+});
+</script>
+</body>
+</html>

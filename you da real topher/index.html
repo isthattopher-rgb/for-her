@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="pixel-heart.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&J_page</title>
+    <link rel="stylesheet" href="styles.css"
+</head>
+<body>
+    <div class="top-nav">
+        <span>Christopher & Jingga</span>
+    </div>
+
+    <div class="container">
+        <h2>Welcome to J&A Page</h2>
+        <div class"intro">
+            <p>
+                This the only special page that made by Christopher for his beloved Jingga Aurellia.
+            </p>
+    </div>
+
+    <div class="feature">
+        <p>
+            "i made this for you and i hope you like it,btw I Love Youu."
+        </p>
+
+    </div>
+
+    <div class="project">
+        <div class="project-header">
+            <h2 class="project-tittle">
+            <img src="logo.png" class="logo-kecil"> Claim your LOVE!
+            <img src="logo.png" class="logo-kecil"></h2>
+        </div>
+    </div>
+
+    <div class="card-container">
+      <div class="hiasan-kartu">
+        <p>I just send you Love click for accept (please!).</p>
+        <button id="i-love-you" class="i-do">Accept love</button>
+</div>
+
+<div class="bottom-photo-container">
+    <div class="photo-square">
+        <img src="foto-bawah1.png" alt="Memory 1">
+    </div>
+    <div class="photo-square">
+        <img src="foto-bawah2.png" alt="Memory 2">
+    </div>
+</div>
+
+<div class="dekorasi">
+    <img src="foto-dekor1.png" class="decor-photo p1" alt="decor">
+</div>
+
+<div class="story-part">
+    <h2>Orientations</h2>
+</div>
+
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="profile-img-wrapper">
+            <img src="foto-jingga.png" alt="Jingga">
+        </div>
+        <div class="profile-info">
+            <h3>Jingga Aurellia</h3>
+            <p><strong>Born:</strong> 23 July 2006</p>
+            <p><strong>Fav:</strong> Cheese</p>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <div class="profile-img-wrapper">
+            <img src="foto-christopher.png" alt="Christopher">
+        </div>
+        <div class="profile-info">
+            <h3>Christopher</h3>
+            <p><strong>Born:</strong> 11 April 2007</p>
+            <p><strong>Fav:</strong> Cheese</p>
+        </div>
+    </div>
+</div>
+
+<div class="gallery-section">
+    <h2>Our Mini Gallery</h2>
+    <div class="gallery-grid">
+        <div class="photo-card"><img src="foto1.jpeg" alt="Memory 1"></div>
+        <div class="photo-card"><img src="foto2.jpeg" alt="Memory 2"></div>
+        <div class="photo-card"><img src="foto3.jpeg" alt="Memory 3"></div>
+        <div class="photo-card"><img src="foto4.jpeg" alt="Memory 4"></div>
+    </div>
+</div>
+
+<div class="story-divider">
+    <span class="divider-icon">✦</span>
+</div>
+
+<div class="story-section" style="position: relative;">
+    <img src="hiasan1.png" class="moving-decor d1">
+    <img src="hiasan2.png" class="moving-decor d2">
+    <img src="hiasan3.png" class="moving-decor d3">
+
+    </div>
+
+<div class="story-section">
+    <div class="story-header">
+        <h2>Our Love Story</h2>
+        <p class="story-subtitle">Setiap detik berharga bersamamu</p>
+    </div>
+
+    <div class="story-content">
+        <div class="story-box">
+            <span class="story-date">First Meet</span>
+            <p>Pertemuan yang cukup unik apakah Christopher dan Jingga punya benang merah yang kuat?,namun bagi Christopher Jingga melebihi expetasi nya.</p>
+        </div>
+        
+        <div class="story-box">
+            <span class="story-date">Special Moment</span>
+            <p>"Setiap Bertemu dengan nya itu semua special aku harap setelah pertemuan yang baru ini kita bisa mengukir sejarah."</p>
+        </div>
+    </div>
+</div>
+
+<div class="story-divider">
+    <span class="divider-icon">✦</span>
+</div>
+
+<div class="photo-button-container">
+    <a href="https://instagram.com/myc79167" target="_blank" class="photo-btn">
+        <img src="ig.png" alt="Instagram">
+        <div class="btn-overlay">
+        </div>
+    </a>
+
+   <a href="projek.html" class="photo-btn">
+        <img src="web.png" alt="My Project">
+        <div class="btn-overlay">
+             </div>
+    </a>
+</div>
+    </a>
+</div>
+
+<footer class="footer-section">
+    <img src="hf1.png" class="footer-decor fd1" alt="decor">
+    <img src="hf3.png" class="footer-decor fd3" alt="decor">
+
+    <div class="footer-content">
+        <p>Made with ❤️ by Christopher</p>
+        <span class="copyright">© 2024 Forever Together</span>
+    </div>
+</footer>
+
+   <script>
+    const button = document.getElementById('i-love-you');
+
+    button.addEventListener('click', () => {
+        const heart = document.createElement('img'); // Pakai tag img
+        
+        // GANTI 'hati.png' dengan nama file gambar hatimu
+        heart.src = 'hati.png'; 
+        
+        heart.classList.add('floating-heart');
+        
+        // Menentukan posisi acak agar tidak keluar layar
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+        
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        
+        document.body.appendChild(heart);
+
+        // Hapus otomatis dalam 1.5 detik
+        setTimeout(() => {
+            heart.remove();
+        }, 1500);
+    });
+
+</script>
+</body>
+</body>
+</html>
